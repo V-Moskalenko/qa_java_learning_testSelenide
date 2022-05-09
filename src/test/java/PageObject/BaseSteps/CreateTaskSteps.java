@@ -13,14 +13,14 @@ public class CreateTaskSteps extends CreateTaskElements {
         typeTask.setValue("Ошибка");
         typeTask.pressEnter();
         createTheme.setValue(themeName);
-        //textButton1.shouldBe(visible, Duration.ofSeconds(60)).click();
+        textButton1.shouldBe(visible, Duration.ofSeconds(60)).click();
         descriptionFrame.click();
         descriptionFrame.shouldBe(visible, Duration.ofSeconds(60)).sendKeys(specificationStr);
         selectVersion.click();
         selectPriority.click();
         selectPriority.setValue("Lowest");
         selectPriority.pressEnter();
-        //textButton2.shouldBe(visible, Duration.ofSeconds(60)).click();
+        textButton2.shouldBe(visible, Duration.ofSeconds(60)).click();
         environmentFrame.click();
         environmentFrame.shouldBe(visible, Duration.ofSeconds(60)).sendKeys("Windows 11, Chrome 101.0.4951.54");
         assignMe.click();
