@@ -1,8 +1,10 @@
 package Step;
 
-import Hooks.WebHooks;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
+
+
+import java.util.List;
 
 import static PageObject.BaseSteps.CreateTaskSteps.createTask;
 import static PageObject.BaseSteps.LoginSteps.authStep;
@@ -13,9 +15,11 @@ import static com.codeborne.selenide.Selenide.open;
 public class TestJira{
 
     @Когда("^Авторизуемся$")
-    public void Test_1(){
+    public void Test_1(List<String> testdata){
+        String login = testdata.get(0);
+        String password = testdata.get(1);
         open("https://edujira.ifellow.ru");
-        authStep("vmoskalenko", "123Qwerty");
+        authStep(login, password);
     }
 
     @И("^Получаем количество задач$")
