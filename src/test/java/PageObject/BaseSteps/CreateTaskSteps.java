@@ -10,7 +10,7 @@ public class CreateTaskSteps extends CreateTaskElements {
     public static void createTask(String themeName, String specificationStr){
         buttonCreate.click();
         typeTask.shouldBe(visible, Duration.ofSeconds(60)).click();
-        typeTask.setValue("Œ¯Ë·Í‡");
+        typeTask.setValue("–û—à–∏–±–∫–∞");
         typeTask.pressEnter();
         createTheme.setValue(themeName);
         textButton1.shouldBe(visible, Duration.ofSeconds(60)).click();

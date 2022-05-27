@@ -12,14 +12,14 @@ import static com.codeborne.selenide.Selenide.open;
 public class TestSelenide extends WebHooks {
 
     @Test
-    @DisplayName("Тест авторизации")
+    @DisplayName("РўРµСЃС‚ Р°РІС‚РѕСЂРёР·Р°С†РёРё")
     public void Test_1(){
         open("https://edujira.ifellow.ru");
         authStep("vmoskalenko", "123Qwerty");
     }
 
     @Test
-    @DisplayName("Проверка заведённых задач")
+    @DisplayName("РџСЂРѕРІРµСЂРєР° Р·Р°РІРµРґС‘РЅРЅС‹С… Р·Р°РґР°С‡")
     public void Test_2(){
         open("https://edujira.ifellow.ru");
         authStep("vmoskalenko", "123Qwerty");
@@ -27,7 +27,7 @@ public class TestSelenide extends WebHooks {
     }
 
     @Test
-    @DisplayName("Проверка статуса и версии задачи")
+    @DisplayName("РџСЂРѕРІРµСЂРєР° СЃС‚Р°С‚СѓСЃР° Рё РІРµСЂСЃРёРё Р·Р°РґР°С‡Рё")
     public void Test_3(){
         open("https://edujira.ifellow.ru");
         authStep("vmoskalenko", "123Qwerty");
@@ -36,7 +36,7 @@ public class TestSelenide extends WebHooks {
     }
 
     @Test
-    @DisplayName("Заведение новой задачи")
+    @DisplayName("Р—Р°РІРµРґРµРЅРёРµ РЅРѕРІРѕР№ Р·Р°РґР°С‡Рё")
     public void Test_4() {
         open("https://edujira.ifellow.ru");
         authStep("vmoskalenko", "123Qwerty");

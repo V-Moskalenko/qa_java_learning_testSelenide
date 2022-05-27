@@ -13,9 +13,9 @@ public class ProjectSteps extends ProjectElements {
         buttonTest.shouldBe(visible, Duration.ofSeconds(180)).click();
         buttonStatusBar.click();
         String status = statusTask.shouldBe(visible, Duration.ofSeconds(180)).text();
-        assertEquals("В РАБОТЕ", status, "not equals");
-        System.out.println("Статус задачи: " + status);
+        assertEquals("Р’ Р РђР‘РћРўР•", status, "not equals");
+        System.out.println("РЎС‚Р°С‚СѓСЃ Р·Р°РґР°С‡Рё: " + status);
         assertEquals("Version 2.0", versionTask.text(), "not equals");
-        System.out.println("Версия задачи: " + versionTask.text());
+        System.out.println("Р’РµСЂСЃРёСЏ Р·Р°РґР°С‡Рё: " + versionTask.text());
     }
 }

@@ -20,8 +20,8 @@ import static org.junit.Assert.assertEquals;
 
 public class TestJira {
 
-    // Сценарий 001: Весь тест
-    @Когда("^Авторизуемся$")
+    // РЎС†РµРЅР°СЂРёР№ 001: Р’РµСЃСЊ С‚РµСЃС‚
+    @РљРѕРіРґР°("^РђРІС‚РѕСЂРёР·СѓРµРјСЃСЏ$")
     public void Test_1(List<String> testdata) {
         String login = testdata.get(0);
         String password = testdata.get(1);
@@ -29,36 +29,36 @@ public class TestJira {
         authStep(login, password);
     }
 
-    @И("^Получаем количество задач$")
+    @Р("^РџРѕР»СѓС‡Р°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РґР°С‡$")
     public void Test_2() {
         getCountTask();
     }
 
-    @И("^Проверяем задачу$")
+    @Р("^РџСЂРѕРІРµСЂСЏРµРј Р·Р°РґР°С‡Сѓ$")
     public void Test_3() {
         testTask();
     }
 
-    @И("^Заводим новую задачу$")
+    @Р("^Р—Р°РІРѕРґРёРј РЅРѕРІСѓСЋ Р·Р°РґР°С‡Сѓ$")
     public void Test_4() {
         createTask("TEST-05052022", "CreateTest002");
     }
 
-    // Cценарий 002: Только авторизация
+    // CС†РµРЅР°СЂРёР№ 002: РўРѕР»СЊРєРѕ Р°РІС‚РѕСЂРёР·Р°С†РёСЏ
     String LoginName;
     String PasswordName;
 
-    @Дано("^логин '(.*)'")
+    @Р”Р°РЅРѕ("^Р»РѕРіРёРЅ '(.*)'")
     public void getLoginName(String str) {
         LoginName = str;
     }
 
-    @И("^пароль '(.*)'")
+    @Р("^РїР°СЂРѕР»СЊ '(.*)'")
     public void getPasswordName(String str) {
         PasswordName = str;
     }
 
-    @Когда("^проводим авторизацию$")
+    @РљРѕРіРґР°("^РїСЂРѕРІРѕРґРёРј Р°РІС‚РѕСЂРёР·Р°С†РёСЋ$")
     public void authorization() {
         open("https://edujira.ifellow.ru");
         loginPath.shouldBe(visible, Duration.ofSeconds(60)).click();
@@ -68,15 +68,15 @@ public class TestJira {
         authButton.click();
     }
 
-    @Тогда("^видим свой профиль$")
+    @РўРѕРіРґР°("^РІРёРґРёРј СЃРІРѕР№ РїСЂРѕС„РёР»СЊ$")
     public void checkProfile() {
         avatarButton.shouldBe(visible, Duration.ofSeconds(60)).click();
         profileButton.shouldBe(visible, Duration.ofSeconds(60)).click();
         assertEquals("vmoskalenko", checkAuth.text());
     }
 
-    // Сценарий: 003 Проверяем количество заведённых задач
-    @Когда("^авторизуемся в Jira$")
+    // РЎС†РµРЅР°СЂРёР№: 003 РџСЂРѕРІРµСЂСЏРµРј РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РІРµРґС‘РЅРЅС‹С… Р·Р°РґР°С‡
+    @РљРѕРіРґР°("^Р°РІС‚РѕСЂРёР·СѓРµРјСЃСЏ РІ Jira$")
     public void authorizationJira(List<String> testdata) {
         String login = testdata.get(0);
         String password = testdata.get(1);
@@ -84,45 +84,45 @@ public class TestJira {
         authStep(login, password);
     }
 
-    @И("^переходим в проекты$")
+    @Р("^РїРµСЂРµС…РѕРґРёРј РІ РїСЂРѕРµРєС‚С‹$")
     public static void comeInProject() {
         projectButton.shouldBe(visible, Duration.ofSeconds(60)).click();
         testButton.shouldBe(visible, Duration.ofSeconds(60)).click();
         listTasks.shouldBe(visible, Duration.ofSeconds(60)).click();
     }
 
-    @Тогда("^можем увидеть количество заведенных задач$")
+    @РўРѕРіРґР°("^РјРѕР¶РµРј СѓРІРёРґРµС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РІРµРґРµРЅРЅС‹С… Р·Р°РґР°С‡$")
     public static void seeTasks(){
-        System.out.println("Текущее количество задач: " + projectCount.shouldBe(visible, Duration.ofSeconds(60)).text());
+        System.out.println("РўРµРєСѓС‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РґР°С‡: " + projectCount.shouldBe(visible, Duration.ofSeconds(60)).text());
     }
 
-    // Сценарий: 004 Проверка статуса и версии задачи
-    @И("^используем фильтр для поиска задачи$")
+    // РЎС†РµРЅР°СЂРёР№: 004 РџСЂРѕРІРµСЂРєР° СЃС‚Р°С‚СѓСЃР° Рё РІРµСЂСЃРёРё Р·Р°РґР°С‡Рё
+    @Р("^РёСЃРїРѕР»СЊР·СѓРµРј С„РёР»СЊС‚СЂ РґР»СЏ РїРѕРёСЃРєР° Р·Р°РґР°С‡Рё$")
     public static void findTask(){
         filtrPath.shouldBe(visible, Duration.ofSeconds(180)).setValue("TestSelenium");
         buttonTest.shouldBe(visible, Duration.ofSeconds(180)).click();
         buttonStatusBar.click();
     }
 
-    @То("^можем проверить статус и версию задачи$")
+    @РўРѕ("^РјРѕР¶РµРј РїСЂРѕРІРµСЂРёС‚СЊ СЃС‚Р°С‚СѓСЃ Рё РІРµСЂСЃРёСЋ Р·Р°РґР°С‡Рё$")
     public static void getStatusAndVersion(){
         String status = statusTask.shouldBe(visible, Duration.ofSeconds(180)).text();
-        Assertions.assertEquals("В РАБОТЕ", status, "not equals");
-        System.out.println("Статус задачи: " + status);
+        Assertions.assertEquals("Р’ Р РђР‘РћРўР•", status, "not equals");
+        System.out.println("РЎС‚Р°С‚СѓСЃ Р·Р°РґР°С‡Рё: " + status);
         Assertions.assertEquals("Version 2.0", versionTask.text(), "not equals");
-        System.out.println("Версия задачи: " + versionTask.text());
+        System.out.println("Р’РµСЂСЃРёСЏ Р·Р°РґР°С‡Рё: " + versionTask.text());
     }
 
-    //Сценарий: 005 Заводим новую задачу
+    //РЎС†РµРЅР°СЂРёР№: 005 Р—Р°РІРѕРґРёРј РЅРѕРІСѓСЋ Р·Р°РґР°С‡Сѓ
     String theme, specification;
 
-    @И("^зададим тему и описание$")
+    @Р("^Р·Р°РґР°РґРёРј С‚РµРјСѓ Рё РѕРїРёСЃР°РЅРёРµ$")
     public void taskData(List<String> taskdata) {
         theme = taskdata.get(0);
         specification = taskdata.get(1);
     }
 
-    @То("^можем создать новую задачу$")
+    @РўРѕ("^РјРѕР¶РµРј СЃРѕР·РґР°С‚СЊ РЅРѕРІСѓСЋ Р·Р°РґР°С‡Сѓ$")
     public void createNewTask(){
         createTask(theme, specification);
     }
