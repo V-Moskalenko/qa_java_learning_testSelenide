@@ -3,11 +3,13 @@ package PageObject.BaseSteps;
 import PageObject.BaseElements.ProjectElements;
 
 import java.time.Duration;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProjectSteps extends ProjectElements {
+    @Step("Проверка статуса и версии задачи")
     public static void testTask() {
         filtrPath.shouldBe(visible, Duration.ofSeconds(180)).setValue("TestSelenium");
         buttonTest.shouldBe(visible, Duration.ofSeconds(180)).click();

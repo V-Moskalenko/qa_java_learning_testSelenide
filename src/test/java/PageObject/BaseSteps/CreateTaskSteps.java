@@ -1,12 +1,14 @@
 package PageObject.BaseSteps;
 
 import PageObject.BaseElements.CreateTaskElements;
+import io.qameta.allure.Step;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 
 public class CreateTaskSteps extends CreateTaskElements {
+    @Step("Создание задачи с темой {themeName} и описанием {specificationStr}")
     public static void createTask(String themeName, String specificationStr){
         buttonCreate.click();
         typeTask.shouldBe(visible, Duration.ofSeconds(60)).click();
